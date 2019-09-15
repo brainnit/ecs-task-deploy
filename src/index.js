@@ -78,7 +78,13 @@ function newTaskDefinition(template, options) {
     family: template.family,
     volumes: template.volumes,
     containerDefinitions,
-    taskRoleArn: template.taskRoleArn
+    taskRoleArn: template.taskRoleArn,
+    executionRoleArn: template.executionRoleArn, // required when using secrets
+    // allow bellow is required for FARGATE
+    cpu: template.cpu,
+    memory: template.memory,
+    networkMode: template.networkMode,
+    requiresCompatibilities: template.requiresCompatibilities
   }
 }
 /*
